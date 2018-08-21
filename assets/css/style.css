@@ -1,0 +1,47 @@
+body, html {
+    height: 100%;
+    border: 3px solid black;
+}
+
+.bg {
+    background-image: url("../images/depositphotos_29241991-stock-photo-orange-carpet-seamless-texture.jpg");
+    height: 100%;
+}
+
+.main-bg {
+    background-color: bisque;
+    position: fixed;
+    height: 700px;
+    top: 8%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+body h1 {
+    font-family: 'Allerta Stencil', sans-serif; font-size: 99px;
+    color: blue;
+    text-align: center;
+    padding: 30px;
+}
+
+body h5 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.gif {
+    display: block;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#question {
+    padding: 10px;
+}
+
+#catStart {
+    color: yellowgreen;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 43px;
