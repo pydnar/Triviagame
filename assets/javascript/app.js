@@ -3,7 +3,7 @@ var timer = 50;
 
 //score keeping
 
-var currentQuestion; var correctAns; var incorrectAns; var userAns; var seconds; var time; var answered;
+var currentQuestion = 0; var correctAns; var incorrectAns; var userAns; var seconds; var time; var answered;
 
 var gameQuestions = [q1 = {
     question: "What is the name of the mouse that Jon wants Garfield to eat?",
@@ -24,27 +24,57 @@ var gameQuestions = [q1 = {
 }];
 
 function countTime() {
-    timer = 15;
+    timer = 20;
     $("#timeLeft").html("<h5>Time remaining: " + timer + "</h5>");
-    timer = setInterval(displayTime, 1000);
+    time = setInterval(displayTime, 1000);
 }
 
 function displayTime() {
     timer--;
     $("#timeLeft").html("<h5>Time remaining: " + timer + "</h5>");
+    if(timer < 1){
+        clearInterval(timer);
+        throw new Error("Times Up");
+    }
 }
 
-function newQuesiton() {
-    
+
+function displayQuesiton() {
+    countTime();
+    if (currentQuestion = 0){
+        $("#questions").html("<h5> "+ gameQuestions[currentQuestion].question + "</h5>");
+        //call to displayChoices function to display choices.
+    }
+
+    else if (currentQuestion < 4){
+        currentQuestion++;
+        $("#questions").html("<h5> "+ gameQuestions[currentQuestion].question + "</h5>");
+        //call to displayChoices function to display choices.
+    }
+    else {
+        gameOver();
+    }
+}
+
+function displayChoices() {
+    //code to display choices goes here.
+    //loop and/or use .each method on the objects within the array.
 }
 
 function startGame() {
+    console.log("Game has started.");
+    displayQuesiton();
 }
 
 function newGame() {
     currentQuestion = 0;
     correctAns = 0;
-    incorrectAns = 0;
+    incorrectAns = 0; 
+    startGame();
+}
+
+function gameOver() {
+    alert("Game is over.")
 }
 
 $(document).ready(function () {
@@ -58,6 +88,6 @@ $(document).ready(function () {
         setTimeout(function () {
             startGame();
         },
-            2500);
+            1700);
     });
 });
